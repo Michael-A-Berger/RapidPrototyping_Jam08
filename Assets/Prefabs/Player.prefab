@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 463387587}
   - component: {fileID: 1067443403954747361}
   - component: {fileID: 1741098873396552210}
+  - component: {fileID: 5796192291955845003}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -146,6 +147,8 @@ MonoBehaviour:
   lineTextsContainer: {fileID: 0}
   lineTextPrefab: {fileID: 4391337844405297903, guid: abb9e80b97277054994700d8da7e907d,
     type: 3}
+  showMaterial: {fileID: 0}
+  warningMaterial: {fileID: 0}
   dangerDistance: 4
   escapeTime: 3
   timeSlider: {fileID: 0}
@@ -164,3 +167,19 @@ MonoBehaviour:
   arrow: {fileID: 0}
   arrowDeltaValue: 40
   target: {fileID: 0}
+--- !u!114 &5796192291955845003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366882694652327406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37c0a1d2473b5944be12e63662bf340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalTextObject: {fileID: 0}
+  arrowTarget: {fileID: 1741098873396552210}
+  interactKey: 101
+  taskQueue: []
