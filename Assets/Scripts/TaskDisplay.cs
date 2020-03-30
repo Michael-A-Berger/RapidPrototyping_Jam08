@@ -66,16 +66,27 @@ public class TaskDisplay : MonoBehaviour
     // ProcessTaskObjectiveCollision()
     private void ProcessTaskObjectiveCollision(TaskObjective obj)
     {
-        // IF the task objective does NOT require interaction |OR| The interaction key is down...
-        if (!obj.requresInteraction || Input.GetKey(interactKey))
+        // IF the objective has NOT been achieved...
+        if (!obj.achieved)
         {
-            // Trying to remove the task objective from the task queue
-            int index = taskQueue.IndexOf(obj);
-            if (index > -1)
-                taskQueue.Remove(obj);
-            else
-                Debug.LogWarning("\t[ TaskObjective ] script attached to [ " + obj.gameObject.name + " ] was not found in [ taskQueue ]!");
-            UpdateTask();
+            // IF the task objective does NOT require interaction |OR| The interaction key is down...
+            if (!obj.requresInteraction || Input.GetKey(interactKey))
+            {
+                // Trying to remove the task objective from the task queue
+                int index = taskQueue.IndexOf(obj);
+                if (index == 0)
+                {
+                    obj.achieved = true;
+                    taskQueue.Remove(obj);
+                }
+                if (index > 0)
+                {
+                    Debug.Log("\tPlayer tried to complete [ " + obj.gameObject.name + " ] task before completing current task.");
+                }
+                else
+                    Debug.LogWarning("\t[ TaskObjective ] script attached to [ " + obj.gameObject.name + " ] was not found in [ taskQueue ]!");
+                UpdateTask();
+            }
         }
     }
 

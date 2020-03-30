@@ -12,6 +12,8 @@ public class TaskObjective : MonoBehaviour
     [Header("Derived Variables")]
     [Space(10)]
     public Collider taskCollider;
+    [HideInInspector]
+    public bool achieved = false;
 
     // Start()
     void Start()

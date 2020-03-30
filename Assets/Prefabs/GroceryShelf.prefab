@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 5737519473402455671}
   - component: {fileID: 5737519473402455664}
   - component: {fileID: 5737519473402455670}
+  - component: {fileID: 7274108274128756597}
   m_Layer: 0
   m_Name: GroceryShelf
   m_TagString: Untagged
@@ -153,3 +154,17 @@ MonoBehaviour:
   description: Get [ Essential Item X ]
   requresInteraction: 1
   taskCollider: {fileID: 0}
+--- !u!114 &7274108274128756597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737519473402455665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb1e16f8b01071478c09c2e6190cdff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupText: '[ placeholder popup text ]'
+  textObject: {fileID: 0}
