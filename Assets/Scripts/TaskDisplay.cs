@@ -59,6 +59,7 @@ public class TaskDisplay : MonoBehaviour
         else
         {
             goalTextObject.text = "<b>You win!</b>";
+            GameManager.instance.EndGame(true);
             arrowTarget.target = gameObject.transform;
         }
     }
