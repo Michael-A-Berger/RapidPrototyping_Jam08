@@ -12,11 +12,15 @@ public class PlayerMovementController : MonoBehaviour
     private Vector3 movementVelocity;
     private Vector3 movementDir;
     private Rigidbody rb;
+    private AudioManager audioMng;
 
     void Start()
     {
         movementVelocity = Vector3.zero;
         rb = GetComponent<Rigidbody>();
+        audioMng = FindObjectOfType<AudioManager>();
+        if (audioMng == null)
+            Debug.LogError("\tObject with [ AudioManager ] script not found in scene!");
     }
 
     void Update()
@@ -50,14 +54,17 @@ public class PlayerMovementController : MonoBehaviour
         }
         movementDir = movementDir.normalized;
 
-        if(movementDir.magnitude == 0)
+        if (movementDir.magnitude == 0)
         {
             movementVelocity = Vector3.Lerp(movementVelocity, Vector3.zero, frictionLerpValue);
-            if(rb != null)
+            if (rb != null)
             {
                 rb.velocity = Vector3.Lerp(rb.velocity, movementVelocity, frictionLerpValue);
             }
+            audioMng.StopSFX(0);
         }
+        else
+            audioMng.PlaySFX(0);
 
         movementVelocity += movementDir * acceleration * Time.fixedDeltaTime;
         movementVelocity = Vector3.ClampMagnitude(movementVelocity, speed);

@@ -22,10 +22,14 @@ public class PlayerLineDrawing : MonoBehaviour
     private List<Transform> targets = new List<Transform>();
     private bool isTouching;
     private float touchingTime;
+    private AudioManager audioMng;
 
     void Start()
     {
         isTouching = false;
+        audioMng = FindObjectOfType<AudioManager>();
+        if (audioMng == null)
+            Debug.LogError("\tObject with [ AudioManager ] script not found in scene!");
     }
 
     void Update()
@@ -100,10 +104,12 @@ public class PlayerLineDrawing : MonoBehaviour
                 {
                     lr.material = warningMaterial;
                     isTouching = true;
+                    audioMng.PlaySong(1);
                 }
                 else
                 {
                     lr.material = showMaterial;
+                    audioMng.PlaySong(0);
                 }
 
             }
