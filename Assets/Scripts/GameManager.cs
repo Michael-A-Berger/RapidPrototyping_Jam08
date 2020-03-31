@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Button finalRestartButton;
     public Button finalMenuButton;
 
+    public GameObject transition;
 
     [HideInInspector] public bool isPaused;
     [HideInInspector] public bool isEnded;
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
         {
             finalText.text = "Lose";
         }
+        transition.SetActive(false);
         isEnded = true;
         Time.timeScale = 0;
     }
