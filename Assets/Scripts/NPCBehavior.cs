@@ -14,14 +14,15 @@ public class NPCBehavior : MonoBehaviour
 
     public int agentID;
     public int maxAgentsAtDestination = 3;
-    public float stopTime = 3.0f;
+    public float stopTime = 0.0f;
+    public GameObject[] destinations;
     //public float speed;
 
     static private int numAgents;
     static private int[] destinationTrack;
-    static private bool setDestinationTrack = false;
+    //static private bool setDestinationTrack = false;
 
-    private GameObject[] destinations;
+    
     private NavMeshAgent navAgent;
     private int index = -1;
     public bool hasStopped = true;
@@ -34,12 +35,12 @@ public class NPCBehavior : MonoBehaviour
         agentID = numAgents;
 
         navAgent = GetComponent<NavMeshAgent>();
-        destinations = GameObject.FindGameObjectsWithTag("NPCTarget");
-        if(!setDestinationTrack)
-        {
-            destinationTrack = new int[destinations.Length];
-            setDestinationTrack = true;
-        }
+        //destinations = GameObject.FindGameObjectsWithTag("NPCTarget");
+        //if(!setDestinationTrack)
+        //{
+        //    destinationTrack = new int[destinations.Length];
+        //    setDestinationTrack = true;
+        //}
         PickRandomDestination();
     }
 
@@ -75,19 +76,30 @@ public class NPCBehavior : MonoBehaviour
         //Debug.Log("Agent ID: " + agentID + " Picking Random Destination");
         int newIndex = Random.Range(0, destinations.Length);
 
-        if(newIndex != index && destinationTrack[newIndex] < maxAgentsAtDestination)
+        if(newIndex != index)
         {
-            if(index > -1 && destinationTrack[index] > 0)
-                destinationTrack[index]--;
             index = newIndex;
             navAgent.destination = destinations[index].transform.position;
-            destinationTrack[index]++;
             hasStopped = false;
         }
         else
         {
             PickRandomDestination();
         }
+
+        //if (newIndex != index && destinationTrack[newIndex] < maxAgentsAtDestination)
+        //{
+        //    if(index > -1 && destinationTrack[index] > 0)
+        //        destinationTrack[index]--;
+        //    index = newIndex;
+        //    navAgent.destination = destinations[index].transform.position;
+        //    destinationTrack[index]++;
+        //    hasStopped = false;
+        //}
+        //else
+        //{
+        //    PickRandomDestination();
+        //}
 
     }
 }
