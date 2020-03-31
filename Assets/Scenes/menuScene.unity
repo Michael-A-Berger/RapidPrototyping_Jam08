@@ -690,7 +690,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.2, y: -0.1}
-  m_SizeDelta: {x: 1308.4, y: 705.5}
+  m_SizeDelta: {x: 1308.4, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684803114
 MonoBehaviour:
@@ -712,10 +712,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 52
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 62
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -723,8 +723,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Team members:\n\tMichael Berger\n\tJoshua Issac\n\tSoahm Korgaokar\n\tMansoor
-    Patan\n\tHuadong Zhang"
+  m_Text: "Team Members\n\tMichael Berger\n\tJoshua Issac\n\tSoahm Korgaokar\n\tMansoor
+    Patan\n\tHuadong Zhang\n\nMusic by Kevin MacLeod\n\nSounds recorded by...\n\tTim
+    Fryer\n\tMike Keonig\n\nSounds Mixing + Editing by Michael Berger"
 --- !u!222 &684803115
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1576,7 +1577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2123963581
 RectTransform:
   m_ObjectHideFlags: 0

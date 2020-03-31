@@ -16,9 +16,17 @@ public class TaskDisplay : MonoBehaviour
     [Space(10)]
     public List<TaskObjective> taskQueue;
 
+    // Private Properties
+    private AudioManager audioMng;
+
     // Start()
     void Start()
     {
+        // Getting the Audio Manager (and complaining if it's not found)
+        audioMng = FindObjectOfType<AudioManager>();
+        if (audioMng == null)
+            Debug.LogError("\tObject with [ AudioManager ] script not found in scene!");
+
         // IF the goal text object is not defined, complain about it
         if (goalTextObject == null)
             Debug.LogError("\t[ goalTextObject ] is not defined!");
@@ -71,7 +79,8 @@ public class TaskDisplay : MonoBehaviour
         if (!obj.achieved)
         {
             // IF the task objective does NOT require interaction |OR| The interaction key is down...
-            if (!obj.requresInteraction || Input.GetKey(interactKey))
+            bool interactionNeeded = obj.requresInteraction;
+            if (!interactionNeeded || Input.GetKey(interactKey))
             {
                 // Trying to remove the task objective from the task queue
                 int index = taskQueue.IndexOf(obj);
@@ -79,6 +88,8 @@ public class TaskDisplay : MonoBehaviour
                 {
                     obj.achieved = true;
                     taskQueue.Remove(obj);
+                    if (interactionNeeded)
+                        audioMng.PlaySFX(1);
                 }
                 if (index > 0)
                 {
